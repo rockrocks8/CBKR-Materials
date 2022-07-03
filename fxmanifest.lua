@@ -1,11 +1,8 @@
--- Support Discord
--- https://discord.gg/zRCdhENsHG
-
 fx_version 'cerulean'
 game 'gta5'
 
-author 'TRClassic#0001'
-description 'Simple BlackMarket Script For QBCore'
+author 'rockrocks8'
+description 'Edit of tr-blackmarket'
 version '1.0.0'
 
 client_scripts {
@@ -18,6 +15,3 @@ dependencies {
     'qb-menu',
     'qb-target'
 }
-
--- Support Discord
--- https://discord.gg/zRCdhENsHG
