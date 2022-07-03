@@ -7,8 +7,8 @@ International License][cc-by-nc-sa].
 [cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
 [cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
 
-# tr-blackmarket
-Black Market Script For QBCore
+# CBKR-Materials
+Material Seller Script For QBCore
 
 # Features
 - Enable/Disable Blip Location
@@ -23,26 +23,23 @@ Black Market Script For QBCore
 - [qb-menu](https://github.com/qbcore-framework/qb-menu)
 
 # Previews
-Youtube Preview: https://youtu.be/JCQB6jRRUmk
 
-![Preview Screenshot](https://i.imgur.com/0BJHHMi.jpeg)
-![Preview Screenshot](https://i.imgur.com/buYQbVM.jpeg)
-![Preview Screenshot](https://i.imgur.com/kpa0jjG.jpeg)
-![Preview Screenshot](https://i.imgur.com/3SOpmc8.jpeg)
-![Preview Screenshot](https://i.imgur.com/VdqppwB.jpeg)
-![Preview Screenshot](https://i.imgur.com/AkzdFql.jpeg)
-![Preview Screenshot](https://i.imgur.com/tugVZWZ.jpeg)
+https://i.gyazo.com/bd4cda7c1a74f3ca439f62243114537c.mp4
 
 
 # Install
 
-1. Download the resource from github (TRClassic92)
+1. Download the resource from github (rockrocks8) or original Black market script from (TRClassic92)
 
 2. Add to your server files
 
-3. ensure tr-blackmarket
+3. ensure CBKR-Materials
 
 4. Have fun :)
+
+
+## Shout out 
+Big thanks to TRClassic for letting me post this, you can find his discord and other links below. 
 
 ## Tebex
 - [Tebex](https://trclassic.tebex.io/)
