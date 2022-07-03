@@ -1,16 +1,16 @@
-local TRClassicBlackMarketPed
+local CBKRPed
 
 -- Remove ped model on resource stop.
 
-local function RemoveTRPed()
-    if DoesEntityExist(TRClassicBlackMarketPed) then
-        DeletePed(TRClassicBlackMarketPed)
+local function RemoveCBKRPed()
+    if DoesEntityExist(CBKRPed) then
+        DeletePed(CBKRPed)
     end
 end
 
 AddEventHandler('onResourceStop', function(resourceName)
 	if GetCurrentResourceName() == resourceName then
-        RemoveTRPed()
+        RemoveCBKRPed()
 	end
 end)
 
@@ -18,35 +18,35 @@ end)
 
 CreateThread(function()
     if Config.UseBlip then
-        local BlackMarketBlip = AddBlipForCoord(Config.Location.Coords)
-        SetBlipSprite (BlackMarketBlip, Config.Location.SetBlipSprite)
-        SetBlipDisplay(BlackMarketBlip, Config.Location.SetBlipDisplay)
-        SetBlipScale  (BlackMarketBlip, Config.Location.SetBlipScale)
-        SetBlipAsShortRange(BlackMarketBlip, true)
-        SetBlipColour(BlackMarketBlip, Config.Location.SetBlipColour)
+        local MaterialsBlip = AddBlipForCoord(Config.Location.Coords)
+        SetBlipSprite (MaterialsBlip, Config.Location.SetBlipSprite)
+        SetBlipDisplay(MaterialsBlip, Config.Location.SetBlipDisplay)
+        SetBlipScale  (MaterialsBlip, Config.Location.SetBlipScale)
+        SetBlipAsShortRange(MaterialsBlip, true)
+        SetBlipColour(MaterialsBlip, Config.Location.SetBlipColour)
         BeginTextCommandSetBlipName("STRING")
         AddTextComponentSubstringPlayerName(Config.Location.BlipName)
-        EndTextCommandSetBlipName(BlackMarketBlip)
+        EndTextCommandSetBlipName(MaterialsBlip)
     end
     local Coords = Config.Location.Coords
     local PedHash = Config.Location.ModelHash
     local PedModel = Config.Location.ModelName
-    if not DoesEntityExist(TRClassicBlackMarketPed) then
+    if not DoesEntityExist(CBKRPed) then
         RequestModel( GetHashKey(PedModel) )
         while ( not HasModelLoaded( GetHashKey(PedModel) ) ) do
             Wait(1)
         end
-        TRClassicBlackMarketPed = CreatePed(1, PedHash, Coords, false, true)
-        FreezeEntityPosition(TRClassicBlackMarketPed, true)
-        SetEntityInvincible(TRClassicBlackMarketPed, true)
-        SetBlockingOfNonTemporaryEvents(TRClassicBlackMarketPed, true)
+        CBKRPed = CreatePed(1, PedHash, Coords, true, true)
+        FreezeEntityPosition(CBKRPed, true)
+        SetEntityInvincible(CBKRPed, true)
+        SetBlockingOfNonTemporaryEvents(CBKRPed, true)
     end
-    exports['qb-target']:AddTargetEntity(TRClassicBlackMarketPed, {
+    exports['qb-target']:AddTargetEntity(CBKRPed, {
         options = {
             {
                 num = 1,
                 type = "client",
-                event = "tr-blackmarket:OpenShop",
+                event = "CBKR-Materials:OpenShop",
                 label = Config.Text["TargetLabel"],
                 icon = Config.Icons["Eyeicon"],
             }
@@ -57,69 +57,36 @@ end)
 
 -- qb-menu
 
-RegisterNetEvent('tr-blackmarket:OpenShop', function()
-    local BlackMarket = {
+RegisterNetEvent('CBKR-Materials:OpenShop', function()
+    local Materials = {
         {
             header = Config.Text['PedHeader'],
             isMenuHeader = true,
             icon = Config.Icons["Header"]
         },
         {
-            header = Config.Text['Pistols'],
-            icon = Config.Icons['Pistol'],
+            header = Config.Text['Rare'],
+            icon = Config.Icons['Rare'],
             params = {
-                event = "tr-blackmarket:PistolShop",
-            }
-        },
-        {
-            header = Config.Text['SubMachineGuns'],
-            icon = Config.Icons['SubMachineGuns'],
-            params = {
-                event = "tr-blackmarket:SubMachineGunsShop",
-            }
-        },
-        {
-            header = Config.Text['Shotguns'],
-            icon = Config.Icons['Shotguns'],
-            params = {
-                event = "tr-blackmarket:ShotGunsShop",
-            }
-        },
-        {
-            header = Config.Text['AssaultWeapons'],
-            icon = Config.Icons['AssaultWeapons'],
-            params = {
-                event = "tr-blackmarket:AssaultWeaponsShop",
+                event = "CBKR-Materials:RareShop",
             }
         },
         {
             header = Config.Text['Miscellanceous'],
             icon = Config.Icons['Miscellanceous'],
             params = {
-                event = "tr-blackmarket:MiscellanceousShop",
+                event = "CBKR-Materials:MiscellanceousShop",
             }
         },
     }
-    exports['qb-menu']:openMenu(BlackMarket)
+    exports['qb-menu']:openMenu(Materials)
 end)
 
--- BlackMarket Shop Event
-RegisterNetEvent("tr-blackmarket:PistolShop", function()
-	TriggerServerEvent("inventory:server:OpenInventory", "shop", "market", Config.PistolShop)
+-- Materials Shop Event
+RegisterNetEvent("CBKR-Materials:RareShop", function()
+	TriggerServerEvent("inventory:server:OpenInventory", "shop", "market", Config.RareShop)
 end)
 
-RegisterNetEvent("tr-blackmarket:SubMachineGunsShop", function()
-	TriggerServerEvent("inventory:server:OpenInventory", "shop", "market", Config.SubMachineGunShop)
-end)
-
-RegisterNetEvent("tr-blackmarket:ShotGunsShop", function()
-	TriggerServerEvent("inventory:server:OpenInventory", "shop", "market", Config.ShotGunShop)
-end)
-
-RegisterNetEvent("tr-blackmarket:AssaultWeaponsShop", function()
-	TriggerServerEvent("inventory:server:OpenInventory", "shop", "market", Config.AssaultWeaponsShop)
-end)
-
-RegisterNetEvent("tr-blackmarket:MiscellanceousShop", function()
+RegisterNetEvent("CBKR-Materials:MiscellanceousShop", function()
 	TriggerServerEvent("inventory:server:OpenInventory", "shop", "market", Config.MiscellanceousShop)
 end)
