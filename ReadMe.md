@@ -13,7 +13,6 @@ Material Seller Script For QBCore
 # Features
 - Enable/Disable Blip Location
 - Easy To Configure
-- Discord Support (Discord can be found at the bottom of the readme)
 - Open Source
 - Organized Shop
 
@@ -21,10 +20,6 @@ Material Seller Script For QBCore
 - [qb-core](https://github.com/qbcore-framework/qb-core)
 - [qb-target](https://github.com/qbcore-framework/qb-target)
 - [qb-menu](https://github.com/qbcore-framework/qb-menu)
-
-# Previews
-
-https://i.gyazo.com/bd4cda7c1a74f3ca439f62243114537c.mp4
 
 
 # Install
@@ -39,13 +34,4 @@ https://i.gyazo.com/bd4cda7c1a74f3ca439f62243114537c.mp4
 
 
 ## Shout out 
-Big thanks to TRClassic for letting me post this, you can find his discord and other links below. 
-
-## Tebex
-- [Tebex](https://trclassic.tebex.io/)
-
-## Discord
-- [Join Discord](https://discord.gg/zRCdhENsHG)
-
-## Support
-- [Ko-fi Link](https://ko-fi.com/trclassic)
+Big thanks to TRClassic for letting me post this. 
